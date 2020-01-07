@@ -27,7 +27,6 @@ exports.crearCuenta = async (req, res) => {
 			email,
 			password
 		});
-		//res.redirect('/iniciar-sesion');
 
 		//crear URL de confirmar
 		const confirmarUrl = `http://${req.headers.host}/confirmar/${email}`;
@@ -46,13 +45,13 @@ exports.crearCuenta = async (req, res) => {
 
 		//Redirigir al usuario
 		req.flash('correcto', 'Enviamos un correo, confirmar cuenta');
-		res.redirect('/iniciar-sesion');
+		return res.redirect('/iniciar-sesion');
 
 
 
 	} catch (err) {
 		req.flash('error', err.errors.map((error) => error.message));
-
+		console.log(err.errors)
 		res.render('crearCuenta', {
 			nombrePagina: 'Crear Cuenta en UpTask',
 			mensajes: req.flash(),
