@@ -77,5 +77,5 @@ const port = process.env.PORT || 3000;
 
 //Escuchar en el puerto
 app.listen(port, host, () => {
-    console.log(`El servidor esta corriendo en: http://${host}:${port}`);
+    console.log('El servidor esta corriendo');
 })
