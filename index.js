@@ -72,13 +72,10 @@ app.use((req, res, next) => {
 //Rutas del proyecto
 app.use(routes());
 
-//const host = process.env.HOST || '0.0.0.0';
+const host = process.env.HOST || '0.0.0.0';
 const port = process.env.PORT || 3000;
 
 //Escuchar en el puerto
-app.listen(port, (err) => {
-    if (err) {
-        console.log(err);
-    }
-    console.log(`El servidor esta corriendo en:${port}`);
+app.listen(port, host, () => {
+    console.log(`El servidor esta corriendo en: http://${host}:${port}`);
 })
